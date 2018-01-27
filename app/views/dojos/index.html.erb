@@ -1,0 +1,28 @@
+<h1>Listing a number of dojos</h1>
+
+<table>
+	<thead>
+		<th>Coding Dojo Branch</th>
+		<th>Street</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Actions</th>
+	</thead>
+	<tbody>
+		<% @dojos.each do |dojo| %>
+		<tr>
+			<td><%= dojo.branch %></td>
+			<td><%= dojo.street %></td>
+			<td><%= dojo.city %></td>
+			<td><%= dojo.state %></td>
+			<td><a href="/dojos/<%=dojo.id%>">Show</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;   <a href="/dojos/<%= dojo.id %>/edit">Edit</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href='/dojos/<%= dojo.id %>'>Delete</a></td>
+
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<form action='/dojos/new' method='get'>
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <input type="submit" name="" value="New Dojo">
+</form>

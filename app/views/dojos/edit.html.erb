@@ -1,0 +1,18 @@
+<h1>Editing <%= @dojos.branch %></h1>
+
+<form action='/dojos/<%=@dojos.id%>' method='post'>
+  <input name="_method" value="patch" type="hidden">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <fieldset class= 'fieldset'>
+    Branch: <input type="text" name="branch" value="<%= @dojos.branch %>"><br>
+    Street: <input type="text" name="street" value="<%= @dojos.street %>"><br>
+    City: <input type="text" name="city" value="<%= @dojos.city %>"><br>
+    State: <input type="text" name="state" value="<%= @dojos.state %>"><br>
+    <input type="submit" name="" value="Update">
+</fieldset>
+</form>
+
+<form action='/dojos' method='get'>
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <input type="submit" name="" value="Home">
+</form>
